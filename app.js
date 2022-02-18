@@ -31,7 +31,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 //mongoose.connect('mongodb://localhost:27017/yelp-camp');
 mongoose.connect(process.env.MONGODB_URL);
-
+//console.log(process.env);
 const db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "connection error:"));
@@ -90,7 +90,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // we have to make the flash message global. so it can be accessed from anywhere in our program.
 app.use((req, res, next) => {
-    console.log(req.user);
+    //console.log(req.user);
     // add the user object from passport into the res.locals to control user signing session
     // console.log(req.user);
     res.locals.currentUser = req.user;

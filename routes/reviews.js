@@ -28,6 +28,8 @@ router.post('/', validateReview, catchAsync(async (req, res) => {
     //console.log(campground);
     const review = new Review(req.body);
     // save the review to the campground
+    review.author = req.user._id;
+    //console.log(review);
     campground.review.push(review);
     // save the review to our db
     await review.save();
