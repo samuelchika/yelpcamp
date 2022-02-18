@@ -1,2 +1,0 @@
-# yelpcamp
-Express Application
