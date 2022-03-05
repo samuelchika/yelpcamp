@@ -1,0 +1,20 @@
+[
+  {
+    "fieldname": "image",
+    "originalname": "acronyms.JPG",
+    "encoding": "7bit",
+    "mimetype": "image/jpeg",
+    "path": "https://res.cloudinary.com/samchik/image/upload/v1645457670/YelpCamp/yfwvygjk44oidaxlghck.jpg",
+    "size": 48253,
+    "filename": "YelpCamp/yfwvygjk44oidaxlghck"
+  },
+  {
+    "fieldname": "image",
+    "originalname": "aws services.JPG",
+    "encoding": "7bit",
+    "mimetype": "image/jpeg",
+    "path": "https://res.cloudinary.com/samchik/image/upload/v1645457670/YelpCamp/zwzkwtyg3px7sunbvekl.jpg",
+    "size": 178049,
+    "filename": "YelpCamp/zwzkwtyg3px7sunbvekl"
+  }
+]

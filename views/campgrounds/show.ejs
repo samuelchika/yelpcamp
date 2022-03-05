@@ -1,8 +1,32 @@
 <% layout('layouts/boilerplate'); %>
 <div class="row d-flex justify-content-center">
-    <div class="col-6">
-        <div class="card mb-3">
-            <img src="<%= campground.image %>" class="card-img-top" alt="...">
+    <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-0">
+        <div class="card my-3">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <!-- <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div> -->
+                <div class="carousel-inner">
+                    <% campground.images.forEach((image, i) => { %>
+                      <div class="carousel-item <%= (i == 0) ? 'active' : '' %>">
+                        <img class="d-block w-100 " src="<%= image.url %>" alt="<%= image.filename %>">
+                      </div>
+                      <% }); %>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+
+
+            <!-- <img src="<%= campground.images.url %>" class="card-img-top" alt="..."> -->
             <div class="card-body">
               <h5 class="card-title"><%= campground.title %></h5>
               <p class="card-text"><%= campground.description %></p>
@@ -26,8 +50,10 @@
               </div>
           </div>
     </div>
-    <% if (campground.review.length != 0) { %>
-    <div class="col-6">
+    
+    <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-0 p-sm-2">
+      <div id='map'  style="width: 100%;  height: 200px;"></div>
+      <% if (currentUser || campground.review.length != 0) { %>
       <div class="mb-3">
         <% if (currentUser) { %>
         <form action="/campgrounds/<%= campground._id %>/reviews" method="POST" novalidate class="validated-form">
@@ -58,8 +84,9 @@
             <button class="btn btn-success">Submit</button>
           </div>
         </form>
+        <% } %>
       </div>
-      <% } %>
+      
       <% campground.review.forEach(review => { %>
         <div class="card mb-3 p-2">
             <h6 class="text-bold">Review by: <%= review.author.username %> </h6>
@@ -78,3 +105,8 @@
     </div>
     <% } %>
 </div>
+<script>
+  const mapBoxToken = '<%- process.env.MAPBOX_TOKEN %>'
+  const campground =  <%- JSON.stringify(campground) %>;
+</script>
+<script src="/javascript/showMap.js"></script>

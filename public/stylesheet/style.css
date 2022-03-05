@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Hubballi&display=swap");
+body {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://unsplash.com/photos/RMicIhNOOIg/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjQ2MDY1MjMy&force=true&w=1920");
+  background-size: cover;
+  background-position: center;
+  text-shadow: 0 0.05rem 0.1rem rgba (0, 0, 0, 0.5);
+  box-shadow: insert 0 0 5rem rgba(0, 0, 0, 0.5);
+  font-family: "Hubballi", cursive;
+}
+
+.cover-container {
+  max-width: 60vw;
+}
+
+.nav-link,
+.nav-link:hover {
+  padding: 0.25rem 0;
+  margin-left: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  border-bottom: 0.25rem solid transparent;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: white;
+  border-bottom: 0.25rem solid white;
+}
+
+.btn-secondary {
+  color: #333;
+  text-shadow: none;
+}
